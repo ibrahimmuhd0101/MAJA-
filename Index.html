@@ -3,10 +3,368 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
   <title>MAJA</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #111;
+    }
+
+    .app {
+      max-width: 600px;
+      margin: auto;
+      min-height: 100vh;
+      background: white;
+    }
+
+    header {
+      height: 65px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .more {
+      font-size: 25px;
+    }
+
+    .content {
+      padding-bottom: 80px;
+    }
+
+    .create {
+      margin: 15px;
+      padding: 15px;
+      border: 1px solid #eee;
+      border-radius: 16px;
+    }
+
+    .create-top {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #111;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .input {
+      flex: 1;
+      color: #888;
+      font-size: 15px;
+    }
+
+    .post-btn {
+      margin-top: 12px;
+      width: 100%;
+      border: none;
+      padding: 12px;
+      border-radius: 12px;
+      background: #111;
+      color: white;
+      font-weight: bold;
+    }
+
+    .thread {
+      padding: 18px;
+      border-top: 1px solid #eee;
+    }
+
+    .user {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .username {
+      font-weight: bold;
+    }
+
+    .time {
+      color: #999;
+      font-size: 12px;
+    }
+
+    .text {
+      margin: 14px 0;
+      line-height: 1.5;
+      font-size: 15px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 600px;
+      height: 70px;
+      background: white;
+      border-top: 1px solid #eee;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 20;
+    }
+
+    .nav-item {
+      text-align: center;
+      color: #777;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .nav-icon {
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .nav-item.active {
+      color: #111;
+      font-weight: bold;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .chat {
+      padding: 18px;
+      display: flex;
+      gap: 12px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .chat-info {
+      flex: 1;
+    }
+
+    .last-message {
+      color: #888;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    .profile {
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    .profile .avatar {
+      width: 85px;
+      height: 85px;
+      margin: auto;
+      font-size: 28px;
+    }
+
+    .profile h2 {
+      margin-top: 15px;
+    }
+
+    .profile p {
+      color: #777;
+      margin-top: 7px;
+    }
+
+    .edit {
+      margin-top: 20px;
+      padding: 12px 30px;
+      border: 1px solid #ddd;
+      background: white;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>MAJA</h1>
-  <p>Threads • Chat • Profile</p>
+
+<div class="app">
+
+  <header>
+    <div class="logo">MAJA</div>
+    <div class="more">•••</div>
+  </header>
+
+  <main class="content">
+
+    <!-- THREADS -->
+    <section id="threads" class="page active">
+
+      <div class="create">
+        <div class="create-top">
+          <div class="avatar">M</div>
+          <div class="input">What's happening?</div>
+        </div>
+        <button class="post-btn">Create Thread</button>
+      </div>
+
+      <article class="thread">
+        <div class="user">
+          <div class="avatar">A</div>
+          <div>
+            <div class="username">Abdullahi</div>
+            <div class="time">2m ago</div>
+          </div>
+        </div>
+
+        <div class="text">
+          Welcome to MAJA 👋
+          A simple place to connect, chat and share your thoughts.
+        </div>
+
+        <div class="actions">
+          <span>♡ Like</span>
+          <span>💬 Reply</span>
+          <span>↗ Share</span>
+        </div>
+      </article>
+
+      <article class="thread">
+        <div class="user">
+          <div class="avatar">S</div>
+          <div>
+            <div class="username">Sadiq</div>
+            <div class="time">10m ago</div>
+          </div>
+        </div>
+
+        <div class="text">
+          MAJA is simple. Threads, Chat and Profile — that's it.
+        </div>
+
+        <div class="actions">
+          <span>♡ Like</span>
+          <span>💬 Reply</span>
+          <span>↗ Share</span>
+        </div>
+      </article>
+
+    </section>
+
+
+    <!-- CHAT -->
+    <section id="chat" class="page">
+
+      <div class="chat">
+        <div class="avatar">A</div>
+        <div class="chat-info">
+          <b>Abdullahi</b>
+          <div class="last-message">See you later...</div>
+        </div>
+        <small>2m</small>
+      </div>
+
+      <div class="chat">
+        <div class="avatar">S</div>
+        <div class="chat-info">
+          <b>Sadiq</b>
+          <div class="last-message">Hello 👋</div>
+        </div>
+        <small>10m</small>
+      </div>
+
+    </section>
+
+
+    <!-- PROFILE -->
+    <section id="profile" class="page">
+
+      <div class="profile">
+        <div class="avatar">M</div>
+
+        <h2>My Profile</h2>
+
+        <p>@majauser</p>
+
+        <button class="edit">Edit Profile</button>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- BOTTOM NAVIGATION -->
+  <nav class="bottom-nav">
+
+    <div class="nav-item active" onclick="showPage('threads', this)">
+      <div class="nav-icon">🧵</div>
+      Threads
+    </div>
+
+    <div class="nav-item" onclick="showPage('chat', this)">
+      <div class="nav-icon">💬</div>
+      Chat
+    </div>
+
+    <div class="nav-item" onclick="showPage('profile', this)">
+      <div class="nav-icon">👤</div>
+      Profile
+    </div>
+
+  </nav>
+
+</div>
+
+
+<script>
+  function showPage(page, element) {
+
+    document.querySelectorAll('.page').forEach(function(section) {
+      section.classList.remove('active');
+    });
+
+    document.getElementById(page).classList.add('active');
+
+    document.querySelectorAll('.nav-item').forEach(function(item) {
+      item.classList.remove('active');
+    });
+
+    element.classList.add('active');
+  }
+</script>
+
 </body>
 </html>
