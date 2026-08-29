@@ -1,2 +1,0 @@
-# MAJA-
-Social network
